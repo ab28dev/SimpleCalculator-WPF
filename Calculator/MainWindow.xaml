@@ -1,0 +1,33 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    Margin="300,0,300,0">
+            <Label Content="Calculator" 
+                   HorizontalAlignment="Center"
+                   Padding="5,5,5,20"
+                   FontSize="40"/>
+            <TextBox Text="0" 
+                     Width="100"
+                     TextAlignment="Center"
+                     HorizontalAlignment="Center"
+                     Padding="5"/>
+            <TextBox Text="0" 
+                     Width="100"
+                     TextAlignment="Center"
+                     HorizontalAlignment="Center"
+                     Padding="5"/>
+            <Button Content="Calculate" 
+                    Background="DodgerBlue" 
+                    Foreground="White"
+                    Padding="1"
+                    Margin="50,0,50,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
