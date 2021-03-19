@@ -5,29 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel VerticalAlignment="Center"
-                    Margin="300,0,300,0">
-            <Label Content="Calculator" 
-                   HorizontalAlignment="Center"
-                   Padding="5,5,5,20"
-                   FontSize="40"/>
-            <TextBox Text="0" 
-                     Width="100"
-                     TextAlignment="Center"
-                     HorizontalAlignment="Center"
-                     Padding="5"/>
-            <TextBox Text="0" 
-                     Width="100"
-                     TextAlignment="Center"
-                     HorizontalAlignment="Center"
-                     Padding="5"/>
-            <Button Content="Calculate" 
-                    Background="DodgerBlue" 
-                    Foreground="White"
-                    Padding="1"
-                    Margin="50,0,50,0"/>
-        </StackPanel>
+        Title="MainWindow" Height="525" Width="350">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               FontSize="60"
+               Grid.ColumnSpan="4"/>
+        <Button Content="AC"
+                Margin="5"
+                Grid.Row="1"/>
+        <Button Content="+/1"
+                Margin="5"
+                Grid.Row="1"
+                Grid.Column="1"/>
+        <Button Content="%"
+                Grid.Row="1"
+                Margin="5"
+                Grid.Column="2"/>
+        <Button Content="/"
+                Margin="5"
+                Grid.Row="1"
+                Grid.Column="3"/>
+        <Button Content="7"
+                Margin="5"
+                Grid.Row="2"/>
+        <Button Content="8"
+                Margin="5"
+                Grid.Row="2"
+                Grid.Column="1"/>
+        <Button Content="9"
+                Grid.Row="2"
+                Margin="5"
+                Grid.Column="2"/>
+        <Button Content="*"
+                Margin="5"
+                Grid.Row="2"
+                Grid.Column="3"/>
+        <Button Content="4"
+                Margin="5"
+                Grid.Row="3"/>
+        <Button Content="5"
+                Margin="5"
+                Grid.Row="3"
+                Grid.Column="1"/>
+        <Button Content="6"
+                Grid.Row="3"
+                Margin="5"
+                Grid.Column="2"/>
+        <Button Content="-"
+                Margin="5"
+                Grid.Row="3"
+                Grid.Column="3"/>
+        <Button Content="1"
+                Margin="5"
+                Grid.Row="4"/>
+        <Button Content="2"
+                Margin="5"
+                Grid.Row="4"
+                Grid.Column="1"/>
+        <Button Content="3"
+                Grid.Row="4"
+                Margin="5"
+                Grid.Column="2"/>
+        <Button Content="+"
+                Margin="5"
+                Grid.Row="4"
+                Grid.Column="3"/>
+        <Button Content="0"
+                Margin="5"
+                Grid.Row="5"
+                Grid.ColumnSpan="2"/>
+        <Button Content="."
+                Grid.Row="5"
+                Margin="5"
+                Grid.Column="2"/>
+        <Button Content="="
+                Margin="5"
+                Grid.Row="5"
+                Grid.Column="3"/>
     </Grid>
 </Window>
