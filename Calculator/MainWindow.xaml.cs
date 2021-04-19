@@ -22,6 +22,7 @@ namespace Calculator
     {
         double lastNumber;
         double result;
+        bool equalsClicked;
 
         SelectedOperator selectedOperator;
 
@@ -38,6 +39,7 @@ namespace Calculator
         private void EqualsButton_Click(object sender, RoutedEventArgs e)
         {
             double newNumber;
+            expressionLabel.Content = $"{expressionLabel.Content}=";
             if (double.TryParse(resultLabel.Content.ToString(), out newNumber))
             {
                 switch(selectedOperator)
@@ -55,17 +57,25 @@ namespace Calculator
                         result = SimpleMath.Div(lastNumber, newNumber);
                         break;
                 }
-
+                
                 resultLabel.Content = result.ToString();
+
+                equalsClicked = true;
             }
         }
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            
+            double tempNumber;
+            expressionLabel.Content = $"{expressionLabel.Content}%";
+            if (double.TryParse(resultLabel.Content.ToString(), out tempNumber))
             {
-                lastNumber = lastNumber / 100;
-                resultLabel.Content = lastNumber.ToString();
+                tempNumber = tempNumber / 100;
+                if (lastNumber != 0)
+                    tempNumber *= lastNumber;
+
+                resultLabel.Content = tempNumber.ToString();
             }
         }
 
@@ -81,10 +91,22 @@ namespace Calculator
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
+            expressionLabel.Content = "";
+            result = 0;
+            lastNumber = 0;
+
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
+            if(equalsClicked == true)
+            {
+                expressionLabel.Content = resultLabel.Content.ToString();
+                equalsClicked = false;
+            }
+            string selectedValue = (sender as Button).Content.ToString();
+            expressionLabel.Content = $"{expressionLabel.Content}{selectedValue}";
+
             if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
                 resultLabel.Content = "0";
@@ -102,8 +124,15 @@ namespace Calculator
 
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
-            int selectedValue = int.Parse((sender as Button).Content.ToString());
+            if (equalsClicked == true)
+            {
+                expressionLabel.Content = "";
+                resultLabel.Content = "0";
+                equalsClicked = false;
+            }
 
+            int selectedValue = int.Parse((sender as Button).Content.ToString());
+            expressionLabel.Content = $"{expressionLabel.Content}{selectedValue}";
             if (resultLabel.Content.ToString() == "0")
             {
                 resultLabel.Content = $"{selectedValue}";
@@ -132,6 +161,7 @@ namespace Calculator
             else
             {
                 resultLabel.Content = $"{resultLabel.Content}.";
+                expressionLabel.Content = $"{expressionLabel.Content}.";
             }
         }
 
